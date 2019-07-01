@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { getAllWords } from './actions';
 import { connect } from 'react-redux'
 import './App.css'
+import 'bulma/css/bulma.min.css'
 
 import Header from './layout/Header'
 import WordList from './word/WordList'
@@ -14,8 +15,8 @@ export const App = ({words, getAllWords, useEffectFn = useEffect}) => {
   }, [getAllWords])
 
   return (
-    <main className="App">
-      <Header></Header>
+    <main className="app container">
+      <Header />
       <WordList words={words}/>
     </main>
   )

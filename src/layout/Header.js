@@ -2,7 +2,7 @@ import React from 'react'
 
 const defaultHeaderContent = () => {
   return (
-    <h1>
+    <h1 className="title">
       Lang Helper
     </h1>
   )
@@ -10,7 +10,7 @@ const defaultHeaderContent = () => {
 
 const Header = props => {
   return (
-    <header className="App">
+    <header>
       {props.children || defaultHeaderContent()}
     </header>
   )

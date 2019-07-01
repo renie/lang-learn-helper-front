@@ -1,0 +1,11 @@
+.wordListItem {
+    margin: 20px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.title {
+    margin-left: 20px;
+}

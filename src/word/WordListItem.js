@@ -1,17 +1,22 @@
 import React from 'react'
 
+import MeaningList from '../meaning/MeaningList'
+import './wordListItem.css'
+
 const WordListItem = ({word}) => {
   return (
-    <li>
-        {word.name}
-        <h4>Meanings:</h4>
-        {word.meanings.map(meaning => (
-            <div key={meaning.id}>
-                <strong>{meaning.wordClass}</strong>
-                <p>{meaning.description}</p>
-                <em>Ex.: {meaning.example}</em>
+    <li className="card wordListItem">
+        <header className="card-header">
+            <p className="title">
+                {word.name}
+            </p>
+        </header>
+        <div className="card-content">
+            <div className="content">
+                <p className="subtitle">Meanings:</p>
+                <MeaningList meanings={word.meanings} />
             </div>
-        ))}
+        </div>
     </li>
   )
 }
