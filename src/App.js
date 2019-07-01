@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { bindActionCreators } from 'redux';
+import { getAllWords } from './actions';
+import { connect } from 'react-redux'
+import './App.css'
 
-function App() {
+import Header from './layout/Header'
+import WordList from './word/WordList'
+
+
+export const App = ({words, getAllWords, useEffectFn = useEffect}) => {
+  useEffectFn(()=> {
+    getAllWords()
+  }, [getAllWords])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <main className="App">
+      <Header></Header>
+      <WordList words={words}/>
+    </main>
+  )
+} 
 
-export default App;
+const mapStateToProps = store => ({
+  words: store.wordState.words
+})
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ getAllWords }, dispatch)
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
+
