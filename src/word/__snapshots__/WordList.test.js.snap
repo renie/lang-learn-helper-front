@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly empty 1`] = `
+<ul
+  className="mansory"
+>
+  <li>
+    No words do be listed
+  </li>
+</ul>
+`;
+
+exports[`renders correctly empty 2`] = `
+<ul
+  className="mansory"
+>
+  <li>
+    No words do be listed
+  </li>
+</ul>
+`;
+
+exports[`renders correctly not empty 1`] = `
+<ul
+  className="mansory"
+>
+  <li
+    className="card wordListItem"
+  >
+    <header
+      className="card-header"
+    >
+      <p
+        className="title"
+      >
+        used
+      </p>
+    </header>
+    <div
+      className="card-content"
+    >
+      <div
+        className="content"
+      >
+        <p
+          className="subtitle"
+        >
+          Meanings:
+        </p>
+        <ul>
+          <li>
+            <strong>
+              verb
+            </strong>
+            <p>
+              Verb use in past tense.
+            </p>
+            <em>
+              Ex.: 
+              He used my pen.
+            </em>
+          </li>
+          <li>
+            <strong>
+              adjective
+            </strong>
+            <p>
+              Means the object is not new anymore.
+            </p>
+            <em>
+              Ex.: 
+              My pen is used.
+            </em>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>
+`;

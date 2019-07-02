@@ -20,7 +20,7 @@ const App = ({
   const dispatch = useDispatchFn()
   const getAllWordsToDispatch = () => getAllWords()(dispatch)
 
-  useEffectFn(()=> getAllWordsToDispatch(), [])
+  useEffectFn(()=> {getAllWordsToDispatch()}, [])
 
   return (
     <main className="app container">

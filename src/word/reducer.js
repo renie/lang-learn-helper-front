@@ -1,8 +1,8 @@
-import { GET_ALL_WORDS } from './actionTypes';
+import { GET_ALL_WORDS } from './actionTypes'
 
 const initialState = {
   words: []
-};
+}
 
 const wordReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,11 +10,11 @@ const wordReducer = (state = initialState, action) => {
       return {
         ...state,
         words: action.words
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
 
 export default wordReducer
