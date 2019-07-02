@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  className="app container"
+>
+  <header>
+    <h1
+      className="title"
+    >
+      Lang Helper
+    </h1>
+  </header>
+  <ul
+    className="mansory"
+  >
+    <li>
+      No words do be listed
+    </li>
+  </ul>
+</main>
+`;
