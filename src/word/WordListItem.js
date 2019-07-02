@@ -1,6 +1,6 @@
 import React from 'react'
 
-import MeaningList from '../meaning/MeaningList'
+import MeaningList from './meaning/MeaningList'
 import './wordListItem.css'
 
 const WordListItem = ({word}) => {

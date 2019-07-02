@@ -1,4 +1,4 @@
-import { GET_ALL_WORDS } from '../actions/actionTypes';
+import { GET_ALL_WORDS } from './actionTypes';
 
 const initialState = {
   words: []
