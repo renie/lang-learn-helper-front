@@ -5,6 +5,9 @@
     height: 200px;
 }
 
+.word {
+    position: relative;
+}
 .not_set {
     color: inherit;
 }
@@ -40,4 +43,19 @@
 }
 .determiner {
     color: yellow;
+}
+
+.word:hover .baloon{
+    display: block;
+}
+
+.baloon {
+    display: none;
+    position: absolute;
+    top: 20px;
+    background: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+    overflow: hidden;
+    width: 300px;
 }

@@ -11,10 +11,13 @@ const sendCursorToEnd = (editor, d = document, w = window) => {
 
 const EssayEditorLogic = words => {
 
+    const getBaloon = reference => 
+        `<div class="baloon" contentEditable="false"><p>${reference.name}: a(n) ${reference.meanings[0].wordClass} that means ${reference.meanings[0].description}</p><p>As in: ${reference.meanings[0].example}</p></div>`
+
     const getWordObj = word => words.find(({name}) => name === word)
 
     const tagWord = (word, reference) => 
-        `<span class="${reference.meanings[0].wordClass}">${word}</span>`
+        `<span class="word ${reference.meanings[0].wordClass}">${word}${getBaloon(reference)}</span>`
 
     const tryToTagword = word => {
         const wordObj = getWordObj(word.trim())
@@ -35,7 +38,7 @@ const EssayEditorLogic = words => {
 
     const receiveNewInput = ({nativeEvent}) => {
         const editor = nativeEvent.target
-        editor.innerHTML = getHighlightedText(editor.textContent)
+        editor.innerHTML = getHighlightedText(editor.innerText)
         sendCursorToEnd(editor)
         return true
     }
