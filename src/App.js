@@ -9,6 +9,7 @@ import 'bulma/css/bulma.min.css'
 
 import Header from './layout/Header'
 import WordList from './word/WordList'
+import EssayEditor from './essay/EssayEditor'
 
 
 const App = ({
@@ -25,6 +26,7 @@ const App = ({
   return (
     <main className="app container">
       <Header />
+      <EssayEditor />
       <WordList words={words}/>
     </main>
   )

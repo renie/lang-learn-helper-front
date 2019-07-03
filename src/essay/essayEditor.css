@@ -1,0 +1,43 @@
+.essayEditor {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 500px;
+    height: 200px;
+}
+
+.not_set {
+    color: inherit;
+}
+.noun {
+    color: blue;
+}
+.verb {
+    color: green;
+}
+.adjective {
+    color: red;
+}
+.adverb {
+    color: orange;
+}
+.pronoun {
+    color: lightgreen;
+}
+.preposition {
+    color: lightblue;
+}
+.conjunction {
+    color: pink;
+}
+.interjection {
+    color: brown;
+}
+.numeral {
+    color: darkgray;
+}
+.article {
+    color: purple;
+}
+.determiner {
+    color: yellow;
+}
