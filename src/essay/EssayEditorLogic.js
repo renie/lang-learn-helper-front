@@ -13,7 +13,8 @@ const EssayEditorLogic = words => {
 
     const getWordObj = word => words.find(({name}) => name === word)
 
-    const tagWord = (word, reference) => `<span class="${reference.meanings[0].wordClass}">${word}</span>`
+    const tagWord = (word, reference) => 
+        `<span class="${reference.meanings[0].wordClass}">${word}</span>`
 
     const tryToTagword = word => {
         const wordObj = getWordObj(word.trim())
@@ -21,11 +22,16 @@ const EssayEditorLogic = words => {
         return tagWord(word, wordObj)
     }
 
-    const breakTextInWords = text => text.split(' ')
+    const breakTextInWords = text => 
+        text.split(' ')
 
-    const putTextTogether = text => text.join(' ')
+    const putTextTogether = text => 
+        text.join(' ')
     
-    const getHighlightedText = text => putTextTogether(breakTextInWords(text).map(tryToTagword))
+    const getHighlightedText = text => 
+        putTextTogether(
+            breakTextInWords(text)
+                .map(tryToTagword))
 
     const receiveNewInput = ({nativeEvent}) => {
         const editor = nativeEvent.target

@@ -11,11 +11,6 @@ exports[`renders correctly 1`] = `
       Lang Helper
     </h1>
   </header>
-  <div
-    className="essayEditor"
-    contentEditable="true"
-    onInput={[Function]}
-  />
   <ul
     className="mansory"
   >
