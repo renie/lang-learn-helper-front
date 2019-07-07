@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import WordList from './WordList'
 import renderer from 'react-test-renderer'
 
+import WordList from './WordList'
+
+const WordListItem = ({word}) => `${word.name} - ${word.meanings[0].wordClass}`
 
 it('renders correctly empty', () => {
     const tree = renderer
                     .create(<WordList 
-                                words={undefined}/>)
+                                words={undefined}
+                                WordListItem={WordListItem}/>)
                     .toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -16,7 +19,8 @@ it('renders correctly empty', () => {
 it('renders correctly empty', () => {
     const tree = renderer
                     .create(<WordList 
-                                words={[]}/>)
+                                words={[]}
+                                WordListItem={WordListItem}/>)
                     .toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -43,7 +47,8 @@ it('renders correctly not empty', () => {
 
     const tree = renderer
                     .create(<WordList 
-                                words={words}/>)
+                                words={words}
+                                WordListItem={WordListItem}/>)
                     .toJSON()
 
   expect(tree).toMatchSnapshot()

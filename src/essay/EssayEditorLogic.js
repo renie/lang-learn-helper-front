@@ -1,28 +1,19 @@
-import WordMark from '../word/WordMark'
-import WordMarkBaloon from '../word/WordMarkBaloon'
-
-const sendCursorToEnd = (editor, d = document, w = window) => {
-    const range = document.createRange()
-    range.selectNodeContents(editor)
-    range.collapse(false)
-    const selection = window.getSelection()
-    selection.removeAllRanges()
-    selection.addRange(range)
-    return editor
-}
-
-const EssayEditorLogic = ({
-    words,
-    WordMarkTag = WordMark,
-    WordMarkBaloonTag = WordMarkBaloon,
-    sendCursorToEndFn = sendCursorToEnd
-    }) => {
+const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
+    const sendCursorToEnd = (editor, d = document, w = window) => {
+        const range = document.createRange()
+        range.selectNodeContents(editor)
+        range.collapse(false)
+        const selection = window.getSelection()
+        selection.removeAllRanges()
+        selection.addRange(range)
+        return editor
+    }
 
     const getWordObj = word => 
         words.find(({name}) => name === word)
 
     const tagWord = (typedWord, reference) => 
-        WordMarkTag(typedWord, reference, WordMarkBaloonTag(reference)) 
+        WordMark(typedWord, reference, WordMarkBaloon(reference)) 
 
     const tryToTagword = word => {
         const wordObj = getWordObj(word.trim())
@@ -44,7 +35,7 @@ const EssayEditorLogic = ({
     const receiveNewInput = ({nativeEvent}) => {
         const editor = nativeEvent.target
         editor.innerHTML = getHighlightedText(editor.innerText)
-        sendCursorToEndFn(editor)
+        sendCursorToEnd(editor)
         return true
     }
 

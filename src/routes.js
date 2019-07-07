@@ -1,13 +1,10 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import App from './App'
-import EssayEditor from './essay/EssayEditor'
 
-const Routes = () => (
+const Routes = ({BrowserRouter, Route, Switch, AppComponent, EssayEditorComponent}) => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={App} />
-            <Route exact path="/editor" component={EssayEditor} />
+            <Route exact path="/" component={AppComponent} />
+            <Route exact path="/editor" component={EssayEditorComponent} />
         </Switch>
     </BrowserRouter>
 )

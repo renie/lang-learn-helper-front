@@ -1,33 +1,31 @@
 import React, { useEffect } from 'react'
-import { 
-    useSelector, 
-    useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import './App.css'
 import 'bulma/css/bulma.min.css'
 
 import { getAllWords } from './actions'
 import Header from './layout/Header'
-import WordList from './word/WordList'
+import { WordListComponent } from './word'
 
 
-const App = ({
-    useEffectFn = useEffect,
-    useSelectorFn = useSelector,
-    useDispatchFn = useDispatch}) => {
-
-    const words = useSelectorFn(store => store.wordState.words)
-    const dispatch = useDispatchFn()
+export const App = ({ useEffect, useSelector, useDispatch, getAllWords}) => {
+    const words = useSelector(store => store.wordState.words)
+    const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
 
-    useEffectFn(()=> {getAllWordsToDispatch()}, [])
+    useEffect(()=> {getAllWordsToDispatch()})
 
     return (
         <main className="app container">
             <Header />
-            <WordList words={words}/>
+            <WordListComponent words={words}/>
         </main>
     )
 } 
 
-export default App
+
+export const AppComponent = () => 
+    App({useEffect, useSelector, useDispatch, getAllWords})
+
+

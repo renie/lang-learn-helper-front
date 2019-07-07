@@ -1,30 +1,22 @@
-import React, { useEffect } from 'react'
-import {
-    useSelector,
-    useDispatch } from 'react-redux'
-
+import React from 'react'
 import './essayEditor.css'
 
-import { getAllWords } from '../word/actions'
-import EssayEditorLogic from './EssayEditorLogic'
-
 const EssayEditor = ({
-    useEffectFn = useEffect,
-    useSelectorFn = useSelector,
-    useDispatchFn = useDispatch,
-    EssayEditorLogicFn = EssayEditorLogic }) => {
+    useEffect,
+    useSelector,
+    useDispatch,
+    createEditorLogic,
+    getAllWords }) => {
     
-    const words = useSelectorFn(store => store.wordState.words)
-    const dispatch = useDispatchFn()
+    const words = useSelector(store => store.wordState.words)
+    const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
-    let eel = EssayEditorLogicFn({words})
+    let editorLogic = createEditorLogic({words})
 
-    useEffectFn(()=> {
-        getAllWordsToDispatch()
-    }, [])
+    useEffect(()=> {getAllWordsToDispatch()})
     
     return (
-        <div contentEditable="true" className="essayEditor" onInput={eel.receiveNewInput}></div>
+        <div contentEditable="true" className="essayEditor" onInput={editorLogic.receiveNewInput}></div>
     )
 }
 
