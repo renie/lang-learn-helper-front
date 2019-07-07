@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly empty 1`] = `
+<li
+  className="card wordListItem"
+>
+  <header
+    className="card-header"
+  >
+    <p
+      className="title"
+    />
+  </header>
+  <div
+    className="card-content"
+  >
+    <div
+      className="content"
+    >
+      <p
+        className="subtitle"
+      >
+        Meanings:
+      </p>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`renders correctly not empty 1`] = `
+<li
+  className="card wordListItem"
+>
+  <header
+    className="card-header"
+  >
+    <p
+      className="title"
+    >
+      used
+    </p>
+  </header>
+  <div
+    className="card-content"
+  >
+    <div
+      className="content"
+    >
+      <p
+        className="subtitle"
+      >
+        Meanings:
+      </p>
+      verb - 1
+    </div>
+  </div>
+</li>
+`;
