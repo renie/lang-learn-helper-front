@@ -1,3 +1,5 @@
+import WordMark from '../word/WordMark'
+import WordMarkBaloon from '../word/WordMarkBaloon'
 
 const sendCursorToEnd = (editor, d = document, w = window) => {
     const range = document.createRange()
@@ -11,13 +13,9 @@ const sendCursorToEnd = (editor, d = document, w = window) => {
 
 const EssayEditorLogic = words => {
 
-    const getBaloon = reference => 
-        `<div class="baloon" contentEditable="false"><p>${reference.name}: a(n) ${reference.meanings[0].wordClass} that means ${reference.meanings[0].description}</p><p>As in: ${reference.meanings[0].example}</p></div>`
-
     const getWordObj = word => words.find(({name}) => name === word)
 
-    const tagWord = (word, reference) => 
-        `<span class="word ${reference.meanings[0].wordClass}">${word}${getBaloon(reference)}</span>`
+    const tagWord = (typedWord, reference) => WordMark(typedWord, reference, WordMarkBaloon(reference)) 
 
     const tryToTagword = word => {
         const wordObj = getWordObj(word.trim())
