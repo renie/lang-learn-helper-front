@@ -11,12 +11,13 @@ import EssayEditorLogic from './EssayEditorLogic'
 const EssayEditor = ({
     useEffectFn = useEffect,
     useSelectorFn = useSelector,
-    useDispatchFn = useDispatch }) => {
+    useDispatchFn = useDispatch,
+    EssayEditorLogicFn = EssayEditorLogic }) => {
     
     const words = useSelectorFn(store => store.wordState.words)
     const dispatch = useDispatchFn()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
-    let eel = EssayEditorLogic(words)
+    let eel = EssayEditorLogicFn({words})
 
     useEffectFn(()=> {
         getAllWordsToDispatch()

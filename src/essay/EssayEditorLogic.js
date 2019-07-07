@@ -11,11 +11,18 @@ const sendCursorToEnd = (editor, d = document, w = window) => {
     return editor
 }
 
-const EssayEditorLogic = words => {
+const EssayEditorLogic = ({
+    words,
+    WordMarkTag = WordMark,
+    WordMarkBaloonTag = WordMarkBaloon,
+    sendCursorToEndFn = sendCursorToEnd
+    }) => {
 
-    const getWordObj = word => words.find(({name}) => name === word)
+    const getWordObj = word => 
+        words.find(({name}) => name === word)
 
-    const tagWord = (typedWord, reference) => WordMark(typedWord, reference, WordMarkBaloon(reference)) 
+    const tagWord = (typedWord, reference) => 
+        WordMarkTag(typedWord, reference, WordMarkBaloonTag(reference)) 
 
     const tryToTagword = word => {
         const wordObj = getWordObj(word.trim())
@@ -37,7 +44,7 @@ const EssayEditorLogic = words => {
     const receiveNewInput = ({nativeEvent}) => {
         const editor = nativeEvent.target
         editor.innerHTML = getHighlightedText(editor.innerText)
-        sendCursorToEnd(editor)
+        sendCursorToEndFn(editor)
         return true
     }
 
