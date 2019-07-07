@@ -1,9 +1,9 @@
 const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     const sendCursorToEnd = (editor, d = document, w = window) => {
-        const range = document.createRange()
+        const range = d.createRange()
         range.selectNodeContents(editor)
         range.collapse(false)
-        const selection = window.getSelection()
+        const selection = w.getSelection()
         selection.removeAllRanges()
         selection.addRange(range)
         return editor
@@ -40,6 +40,7 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     }
 
     return {
+        sendCursorToEnd,
         getWordObj,
         tagWord,
         tryToTagword,
