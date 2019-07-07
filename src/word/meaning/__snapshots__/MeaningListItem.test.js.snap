@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly empty 1`] = `
+<li>
+  <strong />
+  <p />
+  <em>
+    Ex.: 
+  </em>
+</li>
+`;
+
+exports[`renders correctly not empty 1`] = `
+<li>
+  <strong>
+    verb
+  </strong>
+  <p>
+    Verb use in past tense.
+  </p>
+  <em>
+    Ex.: 
+    He used my pen.
+  </em>
+</li>
+`;

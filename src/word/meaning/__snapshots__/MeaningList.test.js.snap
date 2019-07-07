@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly empty 1`] = `<ul />`;
+
+exports[`renders correctly empty 2`] = `<ul />`;
+
+exports[`renders correctly not empty 1`] = `
+<ul>
+  1 - verb
+  2 - adjective
+</ul>
+`;

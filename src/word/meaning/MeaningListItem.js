@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MeaningListItem = ({meaning}) => {
+const MeaningListItem = ({meaning = {}}) => {
   return (
     <li>
         <strong>{meaning.wordClass}</strong>
