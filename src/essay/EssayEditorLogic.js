@@ -15,10 +15,10 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     const tagWord = (typedWord, reference) => 
         WordMark(typedWord, reference, WordMarkBaloon(reference)) 
 
-    const tryToTagword = word => {
-        const wordObj = getWordObj(word.trim())
+    const tryToTagWord = ({word, getWordObjFn = getWordObj, tagWordFn = tagWord}) => {
+        const wordObj = getWordObjFn(word.trim())
         if (!wordObj) return word
-        return tagWord(word, wordObj)
+        return tagWordFn(word, wordObj)
     }
 
     const breakTextInWords = text => 
@@ -27,15 +27,15 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     const putTextTogether = text => 
         text.join(' ')
     
-    const getHighlightedText = text => 
-        putTextTogether(
-            breakTextInWords(text)
-                .map(tryToTagword))
+    const getHighlightedText = ({text, putTextTogetherFn = putTextTogether, breakTextInWordsFn = breakTextInWords, tryToTagWordFn = tryToTagWord}) => 
+        putTextTogetherFn(
+            breakTextInWordsFn(text)
+                .map(word => tryToTagWordFn({word})))
 
-    const receiveNewInput = ({nativeEvent}) => {
+    const receiveNewInput = ({ nativeEvent, getHighlightedTextFn = getHighlightedText, sendCursorToEndFn = sendCursorToEnd}) => {
         const editor = nativeEvent.target
-        editor.innerHTML = getHighlightedText(editor.innerText)
-        sendCursorToEnd(editor)
+        editor.innerHTML = getHighlightedTextFn({text: editor.innerText})
+        sendCursorToEndFn(editor)
         return true
     }
 
@@ -43,7 +43,7 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
         sendCursorToEnd,
         getWordObj,
         tagWord,
-        tryToTagword,
+        tryToTagWord,
         breakTextInWords,
         putTextTogether,
         getHighlightedText,

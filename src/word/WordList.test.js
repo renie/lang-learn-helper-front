@@ -10,7 +10,7 @@ it('renders correctly empty', () => {
     const tree = renderer
                     .create(<WordList 
                                 words={undefined}
-                                WordListItem={WordListItem}/>)
+                                WordListItemComponent={WordListItem}/>)
                     .toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -20,7 +20,7 @@ it('renders correctly empty', () => {
     const tree = renderer
                     .create(<WordList 
                                 words={[]}
-                                WordListItem={WordListItem}/>)
+                                WordListItemComponent={WordListItem}/>)
                     .toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -48,7 +48,7 @@ it('renders correctly not empty', () => {
     const tree = renderer
                     .create(<WordList 
                                 words={words}
-                                WordListItem={WordListItem}/>)
+                                WordListItemComponent={WordListItem}/>)
                     .toJSON()
 
   expect(tree).toMatchSnapshot()

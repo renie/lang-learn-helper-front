@@ -68,3 +68,43 @@ it('breakTextInWords', () => {
 it('putTextTogether', () => {
     expect(logic.putTextTogether(['not', 'used'])).toStrictEqual('not used')
 })
+
+it('tryToTagWord', () => {
+    const getWordObj = jest.fn(() => words[0] )
+    const getWordObj2 = jest.fn(() => undefined )
+    const tagWord = jest.fn()
+
+    logic.tryToTagWord({word: 'used ', getWordObjFn: getWordObj, tagWordFn: tagWord})
+    expect(getWordObj).toHaveBeenCalledWith('used')
+    expect(tagWord).toHaveBeenCalledWith('used ', words[0])
+    expect(logic.tryToTagWord({word: 'nope ', getWordObjFn: getWordObj2})).toBe('nope ')
+})
+
+it('getHighlightedText', () => {
+    const myText = 'my text'
+    const putTextTogether = jest.fn(() => true)
+    const breakTextInWords = jest.fn(text => text.split(' '))
+    const tryToTagWord = jest.fn()
+
+    const ret = logic.getHighlightedText({text: myText, putTextTogetherFn: putTextTogether, breakTextInWordsFn: breakTextInWords, tryToTagWordFn: tryToTagWord})
+
+    expect(ret).toBe(true)
+    expect(putTextTogether).toHaveBeenCalled()
+    expect(breakTextInWords).toHaveBeenCalled()
+    expect(tryToTagWord).toHaveBeenCalledTimes(2)
+})
+
+it('receiveNewInput', () => {
+    const nativeEvent = {
+        target: {
+            innerText: 'my text'
+        }
+    }
+    const getHighlightedText = jest.fn()
+    const sendCursorToEnd = jest.fn()
+
+    const ret = logic.receiveNewInput({nativeEvent, getHighlightedTextFn: getHighlightedText, sendCursorToEndFn: sendCursorToEnd})
+    expect(ret).toBe(true)
+    expect(getHighlightedText).toHaveBeenCalledWith({text: nativeEvent.target.innerText})
+    expect(sendCursorToEnd).toHaveBeenCalledWith(nativeEvent.target)
+})
