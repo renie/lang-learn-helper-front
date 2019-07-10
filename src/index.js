@@ -7,8 +7,8 @@ import './index.css'
 // Router imports
 import Routes from './routes'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { AppComponent } from './App'
-import { EssayEditorComponent } from './essay'
+import { AppComponent } from './components/App'
+import { EssayEditorComponent } from './components/essay'
 
 // Store imports
 import { Store } from './store'

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import './App.css'
 import 'bulma/css/bulma.min.css'
 
-import { getAllWords } from './actions'
+import { getAllWords } from '../actions'
 import Header from './layout/Header'
 import { WordListComponent } from './word'
 

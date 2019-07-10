@@ -1,1 +1,1 @@
-export { getAllWords } from '../word/actions'
+export { getAllWords } from '../components/word/actions'

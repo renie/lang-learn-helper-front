@@ -1,4 +1,4 @@
-import { GET_ALL_WORDS } from '../word/actionTypes';
+import { GET_ALL_WORDS } from './actionTypes';
 
 const getWords = words => ({
   type: GET_ALL_WORDS,
