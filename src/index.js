@@ -9,6 +9,8 @@ import Routes from './routes'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { AppComponent } from './components/App'
 import { EssayEditorComponent } from './components/essay'
+import { WordFormComponent } from './components/word'
+
 
 // Store imports
 import { Store } from './store'
@@ -21,7 +23,8 @@ ReactDOM.render(
             Route={Route}
             Switch={Switch}
             AppComponent={AppComponent}
-            EssayEditorComponent={EssayEditorComponent} />
+            EssayEditorComponent={EssayEditorComponent}
+            WordFormComponent={WordFormComponent} />
     </Provider>
     , document.getElementById('root')
 )
