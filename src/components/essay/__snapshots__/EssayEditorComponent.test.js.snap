@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marks words 1`] = `
+"I have a <span class=\\"word verb\\">
+        used<div class=\\"baloon\\" contenteditable=\\"false\\">
+        <p>
+            used: a(n) verb that means Verb use in past tense.</p>
+        <p>
+            As in: He used my pen.</p>
+    </div>
+    </span> and <span class=\\"word adjective\\">
+        classified<div class=\\"baloon\\" contenteditable=\\"false\\">
+        <p>
+            classified: a(n) adjective that means Verb classify in past tense.</p>
+        <p>
+            As in: This pen is classified among blue ones.</p>
+    </div>
+    </span> hat."
+`;

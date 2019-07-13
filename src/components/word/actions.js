@@ -1,6 +1,6 @@
 import { GET_ALL_WORDS } from './actionTypes';
 
-const getWords = words => ({
+export const getWords = words => ({
   type: GET_ALL_WORDS,
   words
 })

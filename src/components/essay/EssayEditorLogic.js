@@ -1,5 +1,7 @@
 const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     const sendCursorToEnd = (editor, d = document, w = window) => {
+        if(!d.createRange) return false
+        
         const range = d.createRange()
         range.selectNodeContents(editor)
         range.collapse(false)

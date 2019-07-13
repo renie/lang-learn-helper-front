@@ -16,7 +16,10 @@ const EssayEditor = ({
     useEffect(()=> {getAllWordsToDispatch()})
     
     return (
-        <div contentEditable="true" className="essayEditor" onInput={editorLogic.receiveNewInput}></div>
+        <div
+            contentEditable="true"
+            className="essayEditor"
+            onInput={editorLogic.receiveNewInput}></div>
     )
 }
 
