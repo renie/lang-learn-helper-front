@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly no option 1`] = `
+<div
+  className="tabs is-centered"
+>
+  <ul>
+    <li
+      className="is-active"
+    >
+      <a
+        href="/"
+      >
+        Search
+      </a>
+    </li>
+    <li
+      className=""
+    >
+      <a
+        href="/editor"
+      >
+        Write Essay
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders correctly no option 2`] = `
+<div
+  className="tabs is-centered"
+>
+  <ul>
+    <li
+      className=""
+    >
+      <a
+        href="/"
+      >
+        Search
+      </a>
+    </li>
+    <li
+      className="is-active"
+    >
+      <a
+        href="/editor"
+      >
+        Write Essay
+      </a>
+    </li>
+  </ul>
+</div>
+`;

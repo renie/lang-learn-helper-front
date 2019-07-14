@@ -6,14 +6,36 @@ exports[`renders correctly 1`] = `
 >
   <header>
     <h1
-      className="title"
+      className="title has-text-centered is-marginless"
     >
       Lang Helper
     </h1>
+    <div
+      className="tabs is-centered"
+    >
+      <ul>
+        <li
+          className="is-active"
+        >
+          <a
+            href="/"
+          >
+            Search
+          </a>
+        </li>
+        <li
+          className=""
+        >
+          <a
+            href="/editor"
+          >
+            Write Essay
+          </a>
+        </li>
+      </ul>
+    </div>
   </header>
-  <ul
-    className="mansory"
-  >
+  <ul>
     <li>
       No words do be listed
     </li>

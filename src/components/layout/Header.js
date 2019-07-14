@@ -1,19 +1,18 @@
 import React from 'react'
 
-const defaultHeaderContent = () => {
-  return (
-    <h1 className="title">
-      Lang Helper
-    </h1>
-  )
-}
+import Menu from './Menu'
 
-const Header = props => {
-  return (
+const defaultHeaderContent = () => (
+    <h1 className="title has-text-centered is-marginless">
+        Lang Helper
+    </h1>
+)
+
+const Header = ({children}) => (
     <header>
-      {props.children || defaultHeaderContent()}
+        { children || defaultHeaderContent() }
+        <Menu/>
     </header>
-  )
-}
+)
 
 export default Header;
