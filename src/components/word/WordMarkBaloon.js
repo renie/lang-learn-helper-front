@@ -1,5 +1,5 @@
 const WordMarkBaloon = reference => 
-    `<div class="baloon" contentEditable="false">
+    `<div class="baloon ${reference.meanings[0].wordClass}" contentEditable="false">
         <p>
             ${reference.name}: a(n) ${reference.meanings[0].wordClass} that means ${reference.meanings[0].description}</p>
         <p>

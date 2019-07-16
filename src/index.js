@@ -7,8 +7,8 @@ import './index.css'
 // Router imports
 import Routes from './routes'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { AppComponent } from './components/App'
-import { EssayEditorComponent } from './components/essay'
+import { SearchPage } from './components/pages/Search'
+import { EditorPage } from './components/pages/Editor'
 import { WordFormComponent } from './components/word'
 
 
@@ -22,8 +22,8 @@ ReactDOM.render(
             BrowserRouter={BrowserRouter}
             Route={Route}
             Switch={Switch}
-            AppComponent={AppComponent}
-            EssayEditorComponent={EssayEditorComponent}
+            SearchPage={SearchPage}
+            EditorPage={EditorPage}
             WordFormComponent={WordFormComponent} />
     </Provider>
     , document.getElementById('root')

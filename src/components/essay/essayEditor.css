@@ -1,48 +1,62 @@
 .essayEditor {
     border: 1px solid #ccc;
     padding: 20px;
-    width: 500px;
-    height: 200px;
+    margin: 20px;
+    min-height: 500px;
 }
 
 .word {
     position: relative;
+    font-weight: bold;
 }
 .not_set {
     color: inherit;
 }
 .noun {
     color: blue;
+    border-color: blue;
 }
 .verb {
     color: green;
+    border-color: green;
+
 }
 .adjective {
     color: red;
+    border-color: red;
+
 }
 .adverb {
     color: orange;
+    border-color: orange;
 }
 .pronoun {
     color: lightgreen;
+    border-color: lightgreen;
 }
 .preposition {
     color: lightblue;
+    border-color: lightblue;
 }
 .conjunction {
     color: pink;
+    border-color: pink;
 }
 .interjection {
     color: brown;
+    border-color: brown;
 }
 .numeral {
     color: darkgray;
+    border-color: darkgray;
 }
 .article {
     color: purple;
+    border-color: purple;
 }
 .determiner {
     color: yellow;
+    border-color: yellow;
 }
 
 .word:hover .baloon{
@@ -53,9 +67,14 @@
     display: none;
     position: absolute;
     top: 20px;
-    background: #ccc;
-    color: #fff;
+    background: #fff;
+    color: #333;
     padding: 5px 10px;
     overflow: hidden;
     width: 300px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #ccc;
+    z-index: 1;
 }

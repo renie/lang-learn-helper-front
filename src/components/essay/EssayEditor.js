@@ -13,7 +13,7 @@ const EssayEditor = ({
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
     let editorLogic = createEditorLogic({words})
 
-    useEffect(()=> {getAllWordsToDispatch()})
+    useEffect(()=> {getAllWordsToDispatch()}, [])
     
     return (
         <div

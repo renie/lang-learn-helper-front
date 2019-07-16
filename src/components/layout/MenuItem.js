@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MenuItem = ({item}) => (
     <li className={ item.isActive ? "is-active" : "" }>
-        <a href={item.link}>{item.label}</a>
+        <Link to={item.link}>{item.label}</Link>
     </li>
 )
 

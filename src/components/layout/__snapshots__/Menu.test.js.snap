@@ -10,6 +10,7 @@ exports[`renders correctly no option 1`] = `
     >
       <a
         href="/"
+        onClick={[Function]}
       >
         Search
       </a>
@@ -19,6 +20,7 @@ exports[`renders correctly no option 1`] = `
     >
       <a
         href="/editor"
+        onClick={[Function]}
       >
         Write Essay
       </a>
@@ -37,6 +39,7 @@ exports[`renders correctly no option 2`] = `
     >
       <a
         href="/"
+        onClick={[Function]}
       >
         Search
       </a>
@@ -46,6 +49,7 @@ exports[`renders correctly no option 2`] = `
     >
       <a
         href="/editor"
+        onClick={[Function]}
       >
         Write Essay
       </a>
