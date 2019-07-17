@@ -1,4 +1,4 @@
-import { GET_ALL_WORDS } from './actionTypes'
+import { GET_ALL_WORDS, SAVE_WORD } from './actionTypes'
 
 const initialState = {
   words: []
@@ -10,6 +10,11 @@ const wordReducer = (state = initialState, action) => {
       return {
         ...state,
         words: action.words
+      }
+    case SAVE_WORD:
+      return {
+        ...state,
+        words: [...state.words, action.word]
       }
     default:
       return state

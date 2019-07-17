@@ -9,7 +9,7 @@ import Routes from './routes'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { SearchPage } from './components/pages/Search'
 import { EditorPage } from './components/pages/Editor'
-import { WordFormComponent } from './components/word'
+import { WordEditPage } from './components/pages/WordEdit'
 
 
 // Store imports
@@ -24,7 +24,7 @@ ReactDOM.render(
             Switch={Switch}
             SearchPage={SearchPage}
             EditorPage={EditorPage}
-            WordFormComponent={WordFormComponent} />
+            WordEditPage={WordEditPage} />
     </Provider>
     , document.getElementById('root')
 )

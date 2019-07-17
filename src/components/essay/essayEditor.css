@@ -3,6 +3,8 @@
     padding: 20px;
     margin: 20px;
     min-height: 500px;
+    min-width: inherit;
+    width: auto;
 }
 
 .word {
@@ -77,4 +79,8 @@
     border-radius: 5px;
     box-shadow: 1px 1px 3px #ccc;
     z-index: 1;
+}
+
+.save-btn {
+    margin: 20px;
 }

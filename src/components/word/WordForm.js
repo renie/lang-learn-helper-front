@@ -1,47 +1,74 @@
 import React from 'react'
+import './wordForm.css'
 
-const WordForm = () => (
-    <>
-        <div class="field">
-            <label for="name" class="label">Word:</label>
-            <div class="control">
-                <input class="input" type="text" id="name" />
-            </div>
-        </div>
-        <div class="field">
-            <label for="meaning1" class="label">Meaning:</label>
-            <div class="control">
-                <textarea id="meaning1" class="textarea" placeholder="Textarea"></textarea>
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Word class:</label>
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <option default>not_set</option>
-                        <option>noun</option> 
-                        <option>verb</option> 
-                        <option>adjective</option> 
-                        <option>adverb</option> 
-                        <option>pronoun</option> 
-                        <option>preposition</option> 
-                        <option>conjunction</option> 
-                        <option>interjection</option>
-                        <option>numeral</option>
-                        <option>article</option>
-                        <option>determiner</option>
-                    </select>
+const WordForm = ({
+    useDispatch,
+    saveWord }) => {
+
+    const nameRef = React.createRef()
+    const meaningRef = React.createRef()
+    const wordClassRef = React.createRef()
+    const exampleRef = React.createRef()
+
+
+    const dispatch = useDispatch()
+
+    const save = e => {
+        const word = {
+            name: nameRef.current.value,
+            meanings: [{
+                id: 0,
+                description: meaningRef.current.value,
+                example: exampleRef.current.value,
+                wordClass: wordClassRef.current.value,
+            }]
+        }
+        saveWord(word)(dispatch)
+    }
+
+    return (
+        <div>
+            <div className="field">
+                <label htmlFor="name" className="label">Word:</label>
+                <div className="control">
+                    <input className="input" type="text" id="name" ref={nameRef}/>
                 </div>
             </div>
-        </div>
-        <div class="field">
-            <label for="example" class="label">Example:</label>
-            <div class="control">
-                <input class="input" type="text" id="example" />
+            <div className="field">
+                <label htmlFor="meaning1" className="label">Meaning:</label>
+                <div className="control">
+                    <textarea id="meaning1" className="textarea" ref={meaningRef}></textarea>
+                </div>
             </div>
+            <div className="field">
+                <label className="label">Word Class Name:</label>
+                <div className="control">
+                    <div className="select">
+                        <select ref={wordClassRef}>
+                            <option default>not_set</option>
+                            <option>noun</option> 
+                            <option>verb</option> 
+                            <option>adjective</option> 
+                            <option>adverb</option> 
+                            <option>pronoun</option> 
+                            <option>preposition</option> 
+                            <option>conjunction</option> 
+                            <option>interjection</option>
+                            <option>numeral</option>
+                            <option>article</option>
+                            <option>determiner</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div className="field">
+                <label htmlFor="example" className="label">Example:</label>
+                <div className="control">
+                    <input className="input" type="text" id="example" ref={exampleRef} />
+                </div>
+            </div>
+            <button className="button is-primary is-pulled-right" onClick={save}>Save</button>
         </div>
-    </>
-)
-
+    )
+}
 export default WordForm
