@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllWords } from '../word/actions'
+import { getAllWords, saveEssay } from '../../actions'
 import EssayEditor from './EssayEditor'
 
 import WordMark from '../word/WordMark'
@@ -12,7 +12,7 @@ export const createEditorLogic = ({words = []}) =>
     EssayEditorLogic({words, WordMark, WordMarkBaloon })
 
 export const EssayEditorComponent = () => 
-    EssayEditor({useEffect, useSelector, useDispatch, createEditorLogic, getAllWords})
+    EssayEditor({useEffect, useSelector, useDispatch, createEditorLogic, getAllWords, saveEssay})
 
 
 

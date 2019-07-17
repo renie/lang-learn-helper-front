@@ -6,20 +6,38 @@ const EssayEditor = ({
     useSelector,
     useDispatch,
     createEditorLogic,
-    getAllWords }) => {
+    getAllWords,
+    saveEssay }) => {
     
     const words = useSelector(store => store.wordState.words)
     const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
     let editorLogic = createEditorLogic({words})
-
     useEffect(()=> {getAllWordsToDispatch()}, [])
+    const editorRef = React.createRef();
+    
+    const save = e => {
+        const text = editorRef
+                        .current
+                        .innerText
+                        .split(' ')
+                        .map(word => ({
+                            "word": word,
+                            "wordClass": "not_set",
+                            "fixes":[]
+                        }))
+        saveEssay(text)(dispatch)
+    }
     
     return (
-        <div
-            contentEditable="true"
-            className="essayEditor"
-            onInput={editorLogic.receiveNewInput}></div>
+        <>
+            <div
+                ref={editorRef}
+                contentEditable="true"
+                className="essayEditor"
+                onInput={editorLogic.receiveNewInput}></div>
+                <button className="button is-primary" onClick={save}>Save</button>
+        </>
     )
 }
 
