@@ -1,20 +1,14 @@
 import React from 'react'
 import './wordForm.css'
 
-const WordForm = ({
-    useDispatch,
-    saveWord }) => {
-
+const WordForm = ({ saveWord }) => {
     const nameRef = React.createRef()
     const meaningRef = React.createRef()
     const wordClassRef = React.createRef()
     const exampleRef = React.createRef()
 
-
-    const dispatch = useDispatch()
-
-    const save = e => {
-        const word = {
+    const save = _ => 
+        saveWord({
             name: nameRef.current.value,
             meanings: [{
                 id: 0,
@@ -22,9 +16,7 @@ const WordForm = ({
                 example: exampleRef.current.value,
                 wordClass: wordClassRef.current.value,
             }]
-        }
-        saveWord(word)(dispatch)
-    }
+        })
 
     return (
         <div>

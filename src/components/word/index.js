@@ -1,19 +1,14 @@
-import { useDispatch } from 'react-redux'
-
+import WordForm from './WordForm'
 import WordList from './WordList'
 import WordListItem from './WordListItem'
 import { MeaningListComponent } from './meaning'
 
-import { saveWord } from '../../actions'
-
-import WordForm from './WordForm'
-
-export const WordListItemComponent = ({word, key}) =>
+export const WordListItemComponent = ({ word, key }) =>
     WordListItem({ word, key, MeaningListComponent })
 
-export const WordListComponent = ({words}) =>
+export const WordListComponent = ({ words = [] }) =>
     WordList({ words, WordListItemComponent })
 
-export const WordFormComponent = () =>
-    WordForm({saveWord, useDispatch})
+export const WordFormComponent = ({ saveWord = () => {} }) =>
+    WordForm({ saveWord })
 

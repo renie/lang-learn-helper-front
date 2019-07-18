@@ -3,12 +3,19 @@ import React from 'react'
 import { WordFormComponent } from '../word'
 import Layout from '../layout/Layout'
 
-export const WordEdit = () => (
-    <Layout>
-        <WordFormComponent />
-    </Layout>
-)
+const WordEdit = ({ 
+    useDispatch, 
+    saveWord 
+}) => {
+
+    const dispatch = useDispatch()
+    const save = word => saveWord(word)(dispatch)
+
+    return (
+        <Layout>
+            <WordFormComponent saveWord={save}/>
+        </Layout>
+    )
+}
  
-
-
-export const WordEditPage = () => WordEdit()
+export default WordEdit

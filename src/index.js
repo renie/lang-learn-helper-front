@@ -7,9 +7,7 @@ import './index.css'
 // Router imports
 import Routes from './routes'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { SearchPage } from './components/pages/Search'
-import { EssayEditorPage } from './components/pages'
-import { WordEditPage } from './components/pages/WordEdit'
+import { SearchPage, EssayEditorPage, WordEditPage } from './components/pages'
 
 
 // Store imports

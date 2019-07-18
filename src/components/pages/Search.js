@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
 
-import { WordListComponent } from '../word'
 import Layout from '../layout/Layout'
-import { getAllWords } from '../../actions'
+import { WordListComponent } from '../word'
 
-export const Search = ({ useEffect, useSelector, useDispatch, getAllWords}) => {
+const Search = ({ 
+    useEffect, 
+    useSelector, 
+    useDispatch, 
+    getAllWords
+}) => {
     const words = useSelector(store => store.wordState.words)
     const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
@@ -19,6 +22,4 @@ export const Search = ({ useEffect, useSelector, useDispatch, getAllWords}) => {
     )
 } 
 
-
-export const SearchPage = () => 
-    Search({useEffect, useSelector, useDispatch, getAllWords})
+export default Search
