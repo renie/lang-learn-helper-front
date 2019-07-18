@@ -1,5 +1,5 @@
 import React from 'react'
-import './wordForm.css'
+import './style/wordForm.css'
 
 const WordForm = ({ saveWord }) => {
     const nameRef = React.createRef()

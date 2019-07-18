@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { EssayEditorComponent } from '../essay'
-import Layout from '../layout/Layout'
+import { EssayEditorComponent } from '../components/essay'
+import Layout from '../components/layout/Layout'
 
 const EssayEditor = ({
     useSelector,
@@ -14,6 +14,7 @@ const EssayEditor = ({
     const words = useSelector(store => store.wordState.words)
     const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(()=> {getAllWordsToDispatch()}, [])
     
     const save = text => 

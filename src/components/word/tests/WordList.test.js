@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 
-import WordList from './WordList'
+import WordList from '../WordList'
 
 const WordListItem = ({word}) => `${word.name} - ${word.meanings[0].wordClass}`
 

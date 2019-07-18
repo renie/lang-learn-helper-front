@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllWords, saveEssay, saveWord } from '../../actions'
+import { getAllWords, saveEssay, saveWord } from '../store/actions'
 
 
 import EssayEditor from './EssayEditor'

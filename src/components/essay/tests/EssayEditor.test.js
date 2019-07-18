@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 
-import EssayEditor from './EssayEditor'
+import EssayEditor from '../EssayEditor'
 
 const useSelector = fn => {
     fn({wordState: { words: [] }})

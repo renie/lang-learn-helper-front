@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Menu from './Menu'
+import Menu from '../Menu'
 
 it('renders correctly no option', () => {
     const tree = renderer

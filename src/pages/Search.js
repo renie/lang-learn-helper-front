@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Layout from '../layout/Layout'
-import { WordListComponent } from '../word'
+import Layout from '../components/layout/Layout'
+import { WordListComponent } from '../components/word'
 
 const Search = ({ 
     useEffect, 
@@ -13,6 +13,7 @@ const Search = ({
     const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(()=> {getAllWordsToDispatch()}, [])
 
     return (

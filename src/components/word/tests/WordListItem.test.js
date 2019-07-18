@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 
-import WordListItem from './WordListItem'
+import WordListItem from '../WordListItem'
 
 const MeaningList = ({meanings}) => `${meanings[0].wordClass} - ${meanings[0].id}`
 

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 
-import MeaningListItem from './MeaningListItem'
+import MeaningListItem from '../MeaningListItem'
 
 it('renders correctly empty', () => {
     const tree = renderer

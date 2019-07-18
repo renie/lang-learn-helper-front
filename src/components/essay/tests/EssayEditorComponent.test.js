@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import {render, fireEvent, cleanup} from '@testing-library/react'
 
-import { EssayEditorComponent } from './'
+import { EssayEditorComponent } from '../'
 
 const mockStore = configureMockStore()
 const words = [{

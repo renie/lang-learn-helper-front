@@ -1,13 +1,12 @@
 import React from 'react'
 
-import { WordFormComponent } from '../word'
-import Layout from '../layout/Layout'
+import { WordFormComponent } from '../components/word'
+import Layout from '../components/layout/Layout'
 
 const WordEdit = ({ 
     useDispatch, 
     saveWord 
 }) => {
-
     const dispatch = useDispatch()
     const save = word => saveWord(word)(dispatch)
 

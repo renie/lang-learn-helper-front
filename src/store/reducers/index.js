@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { wordReducer } from '../store/ducks/word'
-import { essayReducer } from '../store/ducks/essay'
+import { wordReducer } from '../ducks/word'
+import { essayReducer } from '../ducks/essay'
 
 export const Reducers = combineReducers({
   wordState: wordReducer,

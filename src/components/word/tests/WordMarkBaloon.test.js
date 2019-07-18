@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 
-import WordMark from './WordMark'
+import WordMarkBaloon from '../WordMarkBaloon'
 
 it('renders correctly', () =>{
-    const tree = WordMark('used', {
+    const tree = WordMarkBaloon({
             "name":"used",
             "meanings":[{
                 "id": 1,
@@ -20,7 +20,7 @@ it('renders correctly', () =>{
                 "description":"Means the object is not new anymore."
             }],
             "_id":"BcNdVZy038MWxqrg"
-        }, '<baloon />')
+        })
 
     expect(tree).toMatchSnapshot()
 })

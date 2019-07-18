@@ -1,5 +1,5 @@
 import React from 'react'
-import './essayEditor.css'
+import './style/essayEditor.css'
 
 const EssayEditor = ({
     createEditorLogic,

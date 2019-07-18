@@ -1,4 +1,4 @@
-import EssayEditorLogic from './EssayEditorLogic'
+import EssayEditorLogic from '../EssayEditorLogic'
 
 const words = [{
         "name":"used",
