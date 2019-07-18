@@ -1,10 +1,9 @@
 import React from 'react'
-import {render, fireEvent, cleanup} from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import {render, fireEvent, cleanup} from '@testing-library/react'
 
 import { EssayEditorComponent } from './'
-import { getWords } from '../../store/ducks/word'
 
 const mockStore = configureMockStore()
 const words = [{
@@ -90,12 +89,9 @@ const store = mockStore({wordState:{words}})
 
 it('Marks words', () => {
 
-    const getAllWordsFn = _ => 
-        dispatch => Promise.resolve(words).then(wrds => dispatch(getWords(wrds)))
-
     const component = render(
         <Provider store={store}>
-            <EssayEditorComponent getAllWords={getAllWordsFn}/>
+            <EssayEditorComponent words={words}/>
         </Provider> ) 
 
     const editor = component.container.querySelector('.essayEditor')

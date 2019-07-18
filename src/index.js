@@ -8,7 +8,7 @@ import './index.css'
 import Routes from './routes'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { SearchPage } from './components/pages/Search'
-import { EditorPage } from './components/pages/Editor'
+import { EssayEditorPage } from './components/pages'
 import { WordEditPage } from './components/pages/WordEdit'
 
 
@@ -23,7 +23,7 @@ ReactDOM.render(
             Route={Route}
             Switch={Switch}
             SearchPage={SearchPage}
-            EditorPage={EditorPage}
+            EssayEditorPage={EssayEditorPage}
             WordEditPage={WordEditPage} />
     </Provider>
     , document.getElementById('root')

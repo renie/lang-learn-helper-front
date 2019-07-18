@@ -1,18 +1,10 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getAllWords, saveEssay } from '../../actions'
-import EssayEditor from './EssayEditor'
-
 import WordMark from '../word/WordMark'
 import WordMarkBaloon from '../word/WordMarkBaloon'
+import EssayEditor from './EssayEditor'
 import EssayEditorLogic from './EssayEditorLogic'
 
+export const createEditorLogic = ({ words = [] }) =>
+    EssayEditorLogic({ words, WordMark, WordMarkBaloon })
 
-export const createEditorLogic = ({words = []}) =>
-    EssayEditorLogic({words, WordMark, WordMarkBaloon })
-
-export const EssayEditorComponent = () => 
-    EssayEditor({useEffect, useSelector, useDispatch, createEditorLogic, getAllWords, saveEssay})
-
-
-
+export const EssayEditorComponent = ({ words = [], saveEssay = () => {}}) => 
+    EssayEditor({ createEditorLogic, words, saveEssay })
