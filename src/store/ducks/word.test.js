@@ -1,6 +1,5 @@
 import assert from 'assert'
-import { getAllWords } from './actions'
-import { GET_ALL_WORDS } from './actionTypes'
+import { GET_ALL_WORDS, getAllWords } from '../../store/ducks/word'
 
 it('should call fetch and call dispatch', async(done, fail) => {
     const fetchReturn = {

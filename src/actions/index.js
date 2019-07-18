@@ -1,2 +1,2 @@
-export { getAllWords, saveWord } from '../components/word/actions'
-export { saveEssay } from '../components/essay/actions'
+export { getAllWords, saveWord } from '../store/ducks/word'
+export { saveEssay } from '../store/ducks/essay'

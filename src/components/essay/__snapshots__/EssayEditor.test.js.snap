@@ -1,9 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
-  className="essayEditor"
-  contentEditable="true"
-  onInput={[Function]}
-/>
+Array [
+  <div
+    className="field"
+  >
+    <div
+      className="control"
+    >
+      <div
+        className="essayEditor textarea"
+        contentEditable="true"
+        onInput={[Function]}
+      />
+    </div>
+  </div>,
+  <button
+    className="button is-primary is-pulled-right save-btn"
+    onClick={[Function]}
+  >
+    Save
+  </button>,
+]
 `;

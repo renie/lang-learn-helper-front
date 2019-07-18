@@ -1,5 +1,8 @@
-import { GET_ALL_WORDS, SAVE_WORD } from './actionTypes';
+// types
+export const GET_ALL_WORDS = 'GET_ALL_WORDS'
+export const SAVE_WORD = 'SAVE_WORD'
 
+// action creators
 export const getWordsCreator = words => ({
   type: GET_ALL_WORDS,
   words
@@ -10,6 +13,7 @@ export const saveWordCreator = word => ({
   word
 })
 
+// actions
 export const getAllWords = (fetchFn = fetch) => 
     dispatch => 
         fetchFn('http://localhost:3030/word')
@@ -27,3 +31,26 @@ export const saveWord = (word, fetchFn = fetch) =>
             })
             .then(data => data.json())
             .then(word => dispatch(saveWordCreator(word)))
+
+
+// reducer
+const initialState = {
+  words: []
+}
+
+export const wordReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_ALL_WORDS:
+      return {
+        ...state,
+        words: action.words
+      }
+    case SAVE_WORD:
+      return {
+        ...state,
+        words: [...state.words, action.word]
+      }
+    default:
+      return state
+  }
+}

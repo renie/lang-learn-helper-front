@@ -10,6 +10,7 @@ const EssayEditor = ({
     saveEssay }) => {
     
     const words = useSelector(store => store.wordState.words)
+    const dispatch = useDispatch()
     const getAllWordsToDispatch = () => getAllWords()(dispatch)
     let editorLogic = createEditorLogic({words})
     useEffect(()=> {getAllWordsToDispatch()}, [])
