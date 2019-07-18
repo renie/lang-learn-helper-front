@@ -9,6 +9,6 @@ export const WordListItemComponent = ({ word, key }) =>
 export const WordListComponent = ({ words = [] }) =>
     WordList({ words, WordListItemComponent })
 
-export const WordFormComponent = ({ saveWord = () => {} }) =>
-    WordForm({ saveWord })
+export const WordFormComponent = ({ saveWord = () => {}, wordClasses }) =>
+    WordForm({ saveWord, wordClasses })
 

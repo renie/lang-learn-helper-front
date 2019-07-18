@@ -1,7 +1,7 @@
 import React from 'react'
 import './style/wordForm.css'
 
-const WordForm = ({ saveWord }) => {
+const WordForm = ({ saveWord, wordClasses }) => {
     const nameRef = React.createRef()
     const meaningRef = React.createRef()
     const wordClassRef = React.createRef()
@@ -36,19 +36,8 @@ const WordForm = ({ saveWord }) => {
                 <label className="label">Word Class Name:</label>
                 <div className="control">
                     <div className="select">
-                        <select ref={wordClassRef}>
-                            <option default>not_set</option>
-                            <option>noun</option> 
-                            <option>verb</option> 
-                            <option>adjective</option> 
-                            <option>adverb</option> 
-                            <option>pronoun</option> 
-                            <option>preposition</option> 
-                            <option>conjunction</option> 
-                            <option>interjection</option>
-                            <option>numeral</option>
-                            <option>article</option>
-                            <option>determiner</option>
+                        <select ref={wordClassRef} defaultValue="not_set">
+                            {wordClasses.map((wordClass, index) => <option key={index}>{wordClass}</option>)}
                         </select>
                     </div>
                 </div>

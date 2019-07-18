@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllWords, saveEssay, saveWord } from '../store/actions'
+import { getAllWords, saveEssay, saveWord, getWordClasses } from '../store/actions'
 
 
 import EssayEditor from './EssayEditor'
@@ -14,4 +14,4 @@ export const SearchPage = () =>
     Search({ useEffect, useSelector, useDispatch, getAllWords })
 
 export const WordEditPage = () => 
-    WordEdit({ useDispatch, saveWord })
+    WordEdit({ useEffect, useSelector, useDispatch, saveWord, getWordClasses })

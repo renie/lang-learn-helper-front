@@ -1,6 +1,7 @@
 // types
 export const GET_ALL_WORDS = 'GET_ALL_WORDS'
 export const SAVE_WORD = 'SAVE_WORD'
+export const GET_WORD_CLASSES = 'GET_WORD_CLASSES'
 
 // action creators
 export const getWordsCreator = words => ({
@@ -11,6 +12,11 @@ export const getWordsCreator = words => ({
 export const saveWordCreator = word => ({
   type: SAVE_WORD,
   word
+})
+
+export const getWordClassesCreator = wordClasses => ({
+  type: GET_WORD_CLASSES,
+  wordClasses
 })
 
 // actions
@@ -32,25 +38,36 @@ export const saveWord = (word, fetchFn = fetch) =>
             .then(data => data.json())
             .then(word => dispatch(saveWordCreator(word)))
 
+export const getWordClasses = (fetchFn = fetch) => 
+    dispatch => 
+        fetchFn('http://localhost:3030/available-word-classes')
+            .then(data => data.json())
+            .then(words => dispatch(getWordClassesCreator(words)))
 
 // reducer
 const initialState = {
-  words: []
+  words: [],
+  wordClasses: []
 }
 
 export const wordReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case GET_ALL_WORDS:
-      return {
-        ...state,
-        words: action.words
-      }
-    case SAVE_WORD:
-      return {
-        ...state,
-        words: [...state.words, action.word]
-      }
-    default:
-      return state
-  }
+    switch (action.type) {
+        case GET_ALL_WORDS:
+            return {
+                ...state,
+                words: action.words
+            }
+        case SAVE_WORD:
+            return {
+                ...state,
+                words: [...state.words, action.word]
+            }
+        case GET_WORD_CLASSES:
+            return {
+                ...state,
+                wordClasses: action.wordClasses
+            }
+        default:
+            return state
+}
 }
