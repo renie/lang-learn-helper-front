@@ -19,7 +19,7 @@ const WordForm = ({ saveWord, wordClasses }) => {
         })
 
     return (
-        <div>
+        <div className="form">
             <div className="field">
                 <label htmlFor="name" className="label">Word:</label>
                 <div className="control">

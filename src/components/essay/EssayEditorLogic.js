@@ -12,7 +12,7 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     }
 
     const getWordObj = word => 
-        words.find(({name}) => name === word)
+        words.find(({name}) => name.toLowerCase() === word.toLowerCase())
 
     const tagWord = (typedWord, reference) => 
         WordMark(typedWord, reference, WordMarkBaloon(reference)) 
