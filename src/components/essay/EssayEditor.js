@@ -4,14 +4,13 @@ import './style/essayEditor.css'
 const EssayEditor = ({
     createEditorLogic,
     words,
-    saveEssay 
+    saveEssay
 }) => {
-    
-    let editorLogic = createEditorLogic({words})
+    const editorLogic = createEditorLogic({ words })
     const editorRef = React.createRef()
-    
+
     const saveHandler = _ => saveEssay(editorRef.current.innerText)
-    
+
     return (
         <>
             <div className="field">
@@ -20,10 +19,18 @@ const EssayEditor = ({
                         ref={editorRef}
                         contentEditable="true"
                         className="essayEditor textarea"
-                        onInput={editorLogic.receiveNewInput}></div>
+                        onInput={editorLogic.receiveNewInput}
+                    >
+                    </div>
                 </div>
             </div>
-            <button className="button is-primary is-pulled-right save-btn" onClick={saveHandler}>Save</button>
+            <button
+                type="button"
+                className="button is-primary is-pulled-right save-btn"
+                onClick={saveHandler}
+            >
+                Save
+            </button>
         </>
     )
 }

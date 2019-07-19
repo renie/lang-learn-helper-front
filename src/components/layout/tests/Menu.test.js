@@ -1,22 +1,21 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import Menu from '../Menu'
 
 it('renders correctly no option', () => {
     const tree = renderer
-                    .create(<Router><Menu /></Router>)
-                    .toJSON()
+        .create(<Router><Menu /></Router>)
+        .toJSON()
 
     expect(tree).toMatchSnapshot()
 })
 
 it('renders correctly no option', () => {
     const tree = renderer
-                    .create(<Router><Menu route='/editor' /></Router>)
-                    .toJSON()
+        .create(<Router><Menu route='/editor' /></Router>)
+        .toJSON()
 
     expect(tree).toMatchSnapshot()
 })

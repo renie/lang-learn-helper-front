@@ -19,12 +19,12 @@ const EssayEditor = ({
     
     const save = text => 
         saveEssay(text
-                    .split(' ')
-                    .map(word => ({
-                        "word": word,
-                        "wordClass": "not_set",
-                        "fixes":[]
-                    })))(dispatch)
+            .split(' ')
+            .map(word => ({
+                "word": word,
+                "wordClass": "not_set",
+                "fixes":[]
+            })))(dispatch)
 
     return (
         <Layout>

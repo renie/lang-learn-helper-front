@@ -3,8 +3,8 @@ const SAVE_ESSAY = 'SAVE_ESSAY'
 
 // action creators
 export const getSaveEssayCreator = essay => ({
-  type: SAVE_ESSAY,
-  essay
+    type: SAVE_ESSAY,
+    essay
 })
 
 
@@ -12,31 +12,31 @@ export const getSaveEssayCreator = essay => ({
 export const saveEssay = (essay, fetchFn = fetch) => 
     dispatch => 
         fetchFn('http://localhost:3030/essay', {
-              method: 'POST',
-              body: JSON.stringify(essay),
-              headers:{
+            method: 'POST',
+            body: JSON.stringify(essay),
+            headers:{
                 'Content-Type': 'application/json'
-              }
-            })
+            }
+        })
             .then(data => data.json())
             .then(essay => dispatch(getSaveEssayCreator(essay)))
 
 // reducer
 const initialState = {
-  essays: [],
-  essay: {}
+    essays: [],
+    essay: {}
 }
 
 export const essayReducer = (state = initialState, action) => {
-  switch (action.type) {
+    switch (action.type) {
     case SAVE_ESSAY:
-      return {
-        ...state,
-        essay: action.essay,
-        essays: [...state.essays, action.essay]
-      }
+        return {
+            ...state,
+            essay: action.essay,
+            essays: [...state.essays, action.essay]
+        }
     default:
-      return state
-  }
+        return state
+    }
 }
 

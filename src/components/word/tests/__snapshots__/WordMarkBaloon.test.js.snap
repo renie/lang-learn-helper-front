@@ -3,7 +3,8 @@
 exports[`renders correctly 1`] = `
 "<div class=\\"baloon verb\\" contentEditable=\\"false\\">
         <p>
-            used: a(n) verb that means Verb use in past tense.</p>
+            used: a(n) verb
+            that means Verb use in past tense.</p>
         <p>
             As in: He used my pen.</p>
     </div>"

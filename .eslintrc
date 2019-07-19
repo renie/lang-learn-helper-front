@@ -1,4 +1,7 @@
 {
+  "extends": [
+    "plugin:react/recommended"
+  ],
   "parser": "babel-eslint",
   "plugins": [
     "react",
@@ -7,15 +10,26 @@
   "rules": {
     "no-undef": [ 1 ],
     "react-hooks/rules-of-hooks": 'error',
-    "react-hooks/exhaustive-deps": 'warn'
+    "react-hooks/exhaustive-deps": 'warn',
+    "comma-dangle": ["error", "never"],
+    "max-len": ["error", 120],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "react/prop-types": "off",
+    "semi": ["error", "never"],
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/self-closing-comp": 0,
+    "react/jsx-filename-extension": 0
   },
-  "globals": {
-    "it": true,  
-    "fetch": true,  
-    "Promise": true,
-    "expect": true,
-    "jest": true,
+  globals: {
     "document": true,
+    "jest": true,
     "window": true,
+    "expect": true,
+    "Promise": true,
+    "it": true,
+    "fetch": true,
   }
+
 }

@@ -1,21 +1,21 @@
 import EssayEditorLogic from '../EssayEditorLogic'
 
 const words = [{
-        "name":"used",
-        "meanings":[{
-            "id": 1,
-            "wordClass": "verb",
-            "example": "He used my pen.",
-            "description": "Verb use in past tense."
-        },
-        {
-            "id":2,
-            "wordClass":"adjective",
-            "example":"My pen is used.",
-            "description":"Means the object is not new anymore."
-        }],
-        "_id":"BcNdVZy038MWxqrg"
-    }]
+    "name":"used",
+    "meanings":[{
+        "id": 1,
+        "wordClass": "verb",
+        "example": "He used my pen.",
+        "description": "Verb use in past tense."
+    },
+    {
+        "id":2,
+        "wordClass":"adjective",
+        "example":"My pen is used.",
+        "description":"Means the object is not new anymore."
+    }],
+    "_id":"BcNdVZy038MWxqrg"
+}]
 
 const baloon = {id: 'baloon'}
 const WordMarkBaloon = jest.fn(() => baloon)
@@ -31,14 +31,14 @@ it('sendCursorToEnd', () => {
         selectNodeContents: jest.fn(),
         collapse: jest.fn()
     }
-    
+
     const selection = {
         removeAllRanges: jest.fn(),
         addRange: jest.fn()
     }
 
     const doc = { createRange: () => range }
-    
+
     const win = { getSelection : () => selection }
 
     const newEditor = logic.sendCursorToEnd(editor, doc, win)
@@ -86,7 +86,11 @@ it('getHighlightedText', () => {
     const breakTextInWords = jest.fn(text => text.split(' '))
     const tryToTagWord = jest.fn()
 
-    const ret = logic.getHighlightedText({text: myText, putTextTogetherFn: putTextTogether, breakTextInWordsFn: breakTextInWords, tryToTagWordFn: tryToTagWord})
+    const ret = logic.getHighlightedText({
+        text: myText,
+        putTextTogetherFn: putTextTogether,
+        breakTextInWordsFn: breakTextInWords,
+        tryToTagWordFn: tryToTagWord })
 
     expect(ret).toBe(true)
     expect(putTextTogether).toHaveBeenCalled()
@@ -103,8 +107,12 @@ it('receiveNewInput', () => {
     const getHighlightedText = jest.fn()
     const sendCursorToEnd = jest.fn()
 
-    const ret = logic.receiveNewInput({nativeEvent, getHighlightedTextFn: getHighlightedText, sendCursorToEndFn: sendCursorToEnd})
+    const ret = logic.receiveNewInput({
+        nativeEvent,
+        getHighlightedTextFn: getHighlightedText,
+        sendCursorToEndFn: sendCursorToEnd})
+
     expect(ret).toBe(true)
-    expect(getHighlightedText).toHaveBeenCalledWith({text: nativeEvent.target.innerText})
+    expect(getHighlightedText).toHaveBeenCalledWith({ text: nativeEvent.target.innerText })
     expect(sendCursorToEnd).toHaveBeenCalledWith(nativeEvent.target)
 })

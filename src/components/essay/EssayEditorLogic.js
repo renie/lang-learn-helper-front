@@ -1,7 +1,7 @@
 const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
     const sendCursorToEnd = (editor, d = document, w = window) => {
         if(!d.createRange) return false
-        
+
         const range = d.createRange()
         range.selectNodeContents(editor)
         range.collapse(false)
@@ -11,11 +11,11 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
         return editor
     }
 
-    const getWordObj = word => 
+    const getWordObj = word =>
         words.find(({name}) => name.toLowerCase() === word.toLowerCase())
 
-    const tagWord = (typedWord, reference) => 
-        WordMark(typedWord, reference, WordMarkBaloon(reference)) 
+    const tagWord = (typedWord, reference) =>
+        WordMark(typedWord, reference, WordMarkBaloon(reference))
 
     const tryToTagWord = ({word, getWordObjFn = getWordObj, tagWordFn = tagWord}) => {
         const wordObj = getWordObjFn(word.trim())
@@ -23,18 +23,25 @@ const EssayEditorLogic = ({ words, WordMark, WordMarkBaloon }) => {
         return tagWordFn(word, wordObj)
     }
 
-    const breakTextInWords = text => 
+    const breakTextInWords = text =>
         text.split(' ')
 
-    const putTextTogether = text => 
+    const putTextTogether = text =>
         text.join(' ')
-    
-    const getHighlightedText = ({text, putTextTogetherFn = putTextTogether, breakTextInWordsFn = breakTextInWords, tryToTagWordFn = tryToTagWord}) => 
+
+    const getHighlightedText = ({
+        text,
+        putTextTogetherFn = putTextTogether,
+        breakTextInWordsFn = breakTextInWords,
+        tryToTagWordFn = tryToTagWord }) =>
         putTextTogetherFn(
             breakTextInWordsFn(text)
                 .map(word => tryToTagWordFn({word})))
 
-    const receiveNewInput = ({ nativeEvent, getHighlightedTextFn = getHighlightedText, sendCursorToEndFn = sendCursorToEnd}) => {
+    const receiveNewInput = ({
+        nativeEvent,
+        getHighlightedTextFn = getHighlightedText,
+        sendCursorToEndFn = sendCursorToEnd }) => {
         const editor = nativeEvent.target
         editor.innerHTML = getHighlightedTextFn({text: editor.innerText})
         sendCursorToEndFn(editor)

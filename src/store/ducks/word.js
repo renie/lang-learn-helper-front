@@ -5,18 +5,18 @@ export const GET_WORD_CLASSES = 'GET_WORD_CLASSES'
 
 // action creators
 export const getWordsCreator = words => ({
-  type: GET_ALL_WORDS,
-  words
+    type: GET_ALL_WORDS,
+    words
 })
 
 export const saveWordCreator = word => ({
-  type: SAVE_WORD,
-  word
+    type: SAVE_WORD,
+    word
 })
 
 export const getWordClassesCreator = wordClasses => ({
-  type: GET_WORD_CLASSES,
-  wordClasses
+    type: GET_WORD_CLASSES,
+    wordClasses
 })
 
 // actions
@@ -29,12 +29,12 @@ export const getAllWords = (fetchFn = fetch) =>
 export const saveWord = (word, fetchFn = fetch) => 
     dispatch => 
         fetchFn('http://localhost:3030/word', {
-              method: 'POST',
-              body: JSON.stringify(word),
-              headers:{
+            method: 'POST',
+            body: JSON.stringify(word),
+            headers:{
                 'Content-Type': 'application/json'
-              }
-            })
+            }
+        })
             .then(data => data.json())
             .then(word => dispatch(saveWordCreator(word)))
 
@@ -46,28 +46,28 @@ export const getWordClasses = (fetchFn = fetch) =>
 
 // reducer
 const initialState = {
-  words: [],
-  wordClasses: []
+    words: [],
+    wordClasses: []
 }
 
 export const wordReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_ALL_WORDS:
-            return {
-                ...state,
-                words: action.words
-            }
-        case SAVE_WORD:
-            return {
-                ...state,
-                words: [...state.words, action.word]
-            }
-        case GET_WORD_CLASSES:
-            return {
-                ...state,
-                wordClasses: action.wordClasses
-            }
-        default:
-            return state
-}
+    case GET_ALL_WORDS:
+        return {
+            ...state,
+            words: action.words
+        }
+    case SAVE_WORD:
+        return {
+            ...state,
+            words: [...state.words, action.word]
+        }
+    case GET_WORD_CLASSES:
+        return {
+            ...state,
+            wordClasses: action.wordClasses
+        }
+    default:
+        return state
+    }
 }

@@ -14,7 +14,7 @@ const WordForm = ({ saveWord, wordClasses }) => {
                 id: 0,
                 description: meaningRef.current.value,
                 example: exampleRef.current.value,
-                wordClass: wordClassRef.current.value,
+                wordClass: wordClassRef.current.value
             }]
         })
 
